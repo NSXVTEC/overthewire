@@ -17,7 +17,8 @@ Start-Transcript -Path $LogPath -Append -Force | Out-Null
 
 Write-Host "[+] Connecting to OverTheWire..." -ForegroundColor Cyan
 Write-Host "[!] Note: You will need to paste the password for Level $Level" -ForegroundColor Yellow
-ssh "$Username@$HostName" -p $Port
+
+ssh -t "bandit$Level@bandit.labs.overthewire.org" -p 2220 "script -q -c bash /tmp/bandit$Level`_session.txt; cat /tmp/bandit$Level`_session.txt"
 
 Write-Host "`n[-] SSH Session disconnected. Stopping transcript log..." -ForegroundColor Red
 Stop-Transcript | Out-Null
