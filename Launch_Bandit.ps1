@@ -1,7 +1,7 @@
 # Launch-Bandit.ps1
 # Save this in your main OverTheWire GitHub folder
 
-$Level = Read-Host "Enter the Bandit Level you are starting"
+$Level = Read-Host "Enter the Bandit Level you are starting:"
 $Username = "bandit$Level"
 $HostName = "bandit.labs.overthewire.org"
 $Port = 2220
