@@ -1,26 +1,14 @@
-# Launch-Bandit.ps1
-# Save this in your main OverTheWire GitHub folder
-
-$Level = Read-Host "Enter the Bandit Level you are starting:"
+$Level = Read-Host "Enter the Bandit Level you want to launch (e.g., 0, 1, 2)"
 $Username = "bandit$Level"
 $HostName = "bandit.labs.overthewire.org"
 $Port = 2220
 
-# Create a local logs directory if it doesn't exist
-$LogDir = ".\raw_logs"
-if (!(Test-Path $LogDir)) { New-Item -ItemType Directory -Path $LogDir | Out-Null }
+$SolutionFile = ".\levels\bandit_level$Level.ps1"
+if (Test-Path $SolutionFile) {
+    Write-Host "`n[?? Reference] Displaying your previous notes/commands for Level $Level:" -ForegroundColor Yellow
+    Get-Content $SolutionFile | Where-Object { $_ -match "^#" }
+    Write-Host "--------------------------------------------------`n"
+}
 
-$LogPath = "$LogDir\bandit_level$Level`_log.txt"
-
-Write-Host "`n[+] Starting automated local transcript at: $LogPath" -ForegroundColor Green
-Start-Transcript -Path $LogPath -Append -Force | Out-Null
-
-Write-Host "[+] Connecting to OverTheWire..." -ForegroundColor Cyan
-Write-Host "[!] Note: You will need to paste the password for Level $Level" -ForegroundColor Yellow
-
-ssh -t "bandit$Level@bandit.labs.overthewire.org" -p 2220 "script -q -c bash /tmp/bandit$Level`_session.txt; cat /tmp/bandit$Level`_session.txt"
-
-Write-Host "`n[-] SSH Session disconnected. Stopping transcript log..." -ForegroundColor Red
-Stop-Transcript | Out-Null
-
-Write-Host "[+] Log saved successfully. Ready to extract commands to GitHub!" -ForegroundColor Green
+Write-Host "[+] Establishing secure SSH link to OverTheWire..." -ForegroundColor Cyan
+ssh "$Username@$HostName" -p $Port
