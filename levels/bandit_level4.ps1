@@ -1,2 +1,3 @@
-# bandit_level4.ps1
-# Solution template for Level 4
+# LEVEL 4
+# OBJECTIVE: The password for the next level is stored in the only human-readable file in the inhere directory.
+
