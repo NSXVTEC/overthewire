@@ -1,12 +1,14 @@
-# bandit_level1.ps1
+# LEVEL 1
 # Objective: Open a file named '-' located in the home directory.
 
-# ? THE BRUTE FORCE APPROACH
+# COMMANDS
+# initial attempt
 # cat -
-# Note: Fails because '-' is interpreted as an indicator for standard input.
+# Note: Fails because '-' is interpreted as an instruction to read from stdin
 
-# ? THE OPTIMAL SOLUTION
+# SOLUTION
 # cat ./-
+# --> ./ represents the path to the file named -
 
-# ?? ALTERNATIVE METHODS
+# ALTERNATIVE METHODS
 # cat < -
