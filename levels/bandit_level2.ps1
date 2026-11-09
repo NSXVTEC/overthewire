@@ -1,4 +1,4 @@
-# bandit_level2.ps1
+# LEVEL 2
 # OBJECTIVE: The password for the next level is stored in a file called --spaces in this filename-- located in the home directory
 
 # !! alert !! file names containing spaces get tricky
