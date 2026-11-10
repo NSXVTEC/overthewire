@@ -6,3 +6,11 @@
 # cd inhere
 # find . -type f -size 1033c 2>/dev/null
 
+# NOTES
+# -type f (regular file)
+# -size
+# c: bytes
+# k: kilobytes
+# M: megabytes
+# G: gigabytes
+
