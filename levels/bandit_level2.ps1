@@ -9,5 +9,4 @@
 # cat -- "--spaces in filename--"
 # --> "--" the double-dash is a delimiter; tells preceding command there are no further command options being passed
 
-# password: 7ZZ2LFrykP2zEyvBl4m3clcL7tGYJPME
 
